@@ -11,7 +11,7 @@ pipeline
               {
                  steps
                   {
-                    sh "Compiling"
+                    echo "Compiling"
                      sh "javac Demo.java"
                   }  
               }
@@ -19,7 +19,7 @@ pipeline
                 {
                     steps
                     {
-                    sh "Executing"
+                    echo "Executing"
                     sh "java Demo"
                     }
                 }
