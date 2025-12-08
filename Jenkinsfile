@@ -7,17 +7,11 @@ pipeline
           }
     stages
           {
-            stage('checkout')
-            {
-              steps
-                  {
-                      git url:"",branch:"main"
-                  }
-            }
               stage('compiling')
               {
                  steps
                   {
+                    sh "Compiling"
                      sh "javac Demo.java"
                   }  
               }
@@ -25,6 +19,7 @@ pipeline
                 {
                     steps
                     {
+                    sh "Executing"
                     sh "java Demo"
                     }
                 }
