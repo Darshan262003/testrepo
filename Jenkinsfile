@@ -11,7 +11,7 @@ pipeline
               {
                  steps
                   {
-                    echo "Compiling"
+                    echo "i am changing this"
                      sh "javac Demo.java"
                   }  
               }
