@@ -12,7 +12,8 @@ pipeline
                  steps
                   {
                     git url:"https://github.com/Darshan262003/testrepo",
-                      branch:"main"
+                      branch:"main",
+                      credentials:"dockerid"
                   }  
               }
                 stage('build')
