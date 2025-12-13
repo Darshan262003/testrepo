@@ -22,7 +22,7 @@ pipeline
                     steps
                     {
                     script{
-                      dockerimage=docker.build("webapp:latest")
+                      dockerImage = docker.build("${DOCKER_IMAGE}:latest")
                     }
                     }
                 }
