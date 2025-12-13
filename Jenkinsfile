@@ -13,7 +13,7 @@ pipeline
                   {
                     git url:"https://github.com/Darshan262003/testrepo",
                       branch:"main",
-                      credentials:"dockerid"
+                      credentialsId:"dockerid"
                   }  
               }
                 stage('build')
