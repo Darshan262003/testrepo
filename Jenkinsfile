@@ -1,28 +1,39 @@
 pipeline
 {
   agent any
-    triggers
-          {
-            cron('* * * * *')
-          }
+   environment{
+     DOCKER_IMAGE="darshu262003/web"
+     CREDENTIALS=credentials("dockerid")
+   }
     stages
           {
-              stage('compiling')
+              stage('checkout')
               {
                  steps
                   {
-                    echo "i am changing this"
-                     sh "javac Demo.java"
+                    git url:"https://github.com/Darshan262003/testrepo",
+                      branch:"main"
                   }  
               }
-                stage('running')
+                stage('build')
                 {
                     steps
                     {
-                    echo "Executing"
-                    sh "java Demo"
+                    script{
+                      dockerimage=docker.build("webapp:latest")
+                    }
                     }
                 }
+            stage('push')
+            {
+              steps{
+                script{
+                  docker.withResgistry('https://index.docker.io/v1','dockerid'){
+                    dockerimage.push()
+                  }
+                }
+              }
+            }
            }   
     }
                           
