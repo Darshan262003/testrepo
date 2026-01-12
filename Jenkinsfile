@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "darshu262003/mini"
+        IMAGE_NAME = "darshu262003/mini1"
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerid') {
-                        dockerImage.push("latest")
+                        dockerImage.push("2.0")
                     }
                 }
             }
