@@ -31,6 +31,18 @@ pipeline {
                     }
                 }
             }
+            
+        }
+         stage('Deploy to Minikube') {
+            steps {
+                sh """
+                kubectl delete deployment mini --ignore-not-found=true
+                kubectl delete service mini --ignore-not-found=true
+
+                kubectl create deployment mini --image=$IMAGE --port=5000
+                kubectl expose deployment mini --type=NodePort --port=5000 --target-port=5000
+                """
+            }
         }
     }
 }
