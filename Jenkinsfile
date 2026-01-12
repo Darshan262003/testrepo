@@ -18,7 +18,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    dockerImage = docker.build("${IMAGE_NAME}:3.0")
+                    dockerImage = docker.build("${IMAGE_NAME}:4.0")
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerid') {
-                        dockerImage.push("3.0")
+                        dockerImage.push("4.0")
                     }
                 }
             }
