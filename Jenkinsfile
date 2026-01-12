@@ -39,7 +39,7 @@ pipeline {
                 kubectl delete deployment mini --ignore-not-found=true
                 kubectl delete service mini --ignore-not-found=true
 
-                kubectl create deployment mini --image=$IMAGE --port=5000
+                kubectl create deployment mini --image=$IMAGE_NAME --port=5000
                 kubectl expose deployment mini --type=NodePort --port=5000 --target-port=5000
                 """
             }
